@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid="" class="header">
+    <b-container fluid="" class="header fixed-top">
         <b-row>
             <b-col class="p-0 pb-1" >
                 <router-link to="/">
@@ -22,5 +22,6 @@
     .header {
         background-color: #101010;
         height: 40px;
+        position: sticky;
     }
 </style>
