@@ -8,7 +8,6 @@
                     indicators
                     class="d-none d-sm-none d-md-block"
                     >
-
                 <!-- Text slide -->
                 <b-carousel-slide
                         caption=""
