@@ -1,15 +1,6 @@
 <template>
   <div id="app">
-    <b-container fluid="" class="bv-example-row">
-      <b-row>
-        <b-col class="ex p-0 pb-1" >
-          <router-link to="/">
-          <img alt="Vue logo" src="./assets/logo.png">
-          </router-link>
-        </b-col>
-      </b-row>
-    </b-container>
-
+    <Header></Header>
     <router-view></router-view>
     <div id="nav">
       <router-link to="/">Home</router-link> |
@@ -17,6 +8,15 @@
     </div>
   </div>
 </template>
+
+<script>
+import Header from "./components/Header";
+
+export default {
+  components: {Header}
+}
+
+</script>
 
 <style lang="scss">
 #app {
