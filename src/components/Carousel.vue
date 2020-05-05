@@ -18,7 +18,7 @@
 
                 <!-- Slide -->
                 <b-carousel-slide
-                        caption="We just can't describe is using words!"
+                        caption="We just can't describe it using words!"
                         text="That's why we'll use emoji🍆"
                         img-src="https://i.postimg.cc/qMCvBb3p/carousel-Copy1.png">
                     <h1>🥰👍🍣💖💖💖</h1>

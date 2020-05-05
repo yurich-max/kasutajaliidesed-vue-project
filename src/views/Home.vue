@@ -1,24 +1,34 @@
 <template>
+
   <div class="home">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <Carousel></Carousel>
-    <img alt="Vue logo" src="../assets/vue-logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Menu></Menu>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Carousel from '../components/Carousel.vue'
-import HelloWorld from '../components/HelloWorld.vue'
+import Menu from '../components/Menu.vue'
 
+// Import the EventBus.
+import { EventBus } from '../event-bus.js';
+
+// Listen for the i-got-clicked event and its payload.
+EventBus.$on('i-got-clicked', menuName => {
+  console.log(`Oh, that's nice. It's gotten ${menuName} clicks! :)`)
+});
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
-    Carousel
+    Carousel,
+    Menu
   }
+
 }
 </script>
 
 <style scoped>
+
 </style>
