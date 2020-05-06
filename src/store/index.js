@@ -9,51 +9,11 @@ export default new Vuex.Store({
     showShoppingList : false,
     filteredCategory : "POPULAR",
     // things : Object
-    categories : [   {
-      "row": [
-        {
-          "name": "POPULAR"
-        },
-        {
-          "name": "COMBO"
-        },
-        {
-          "name": "SUSHI"
-        },
-        {
-          "name": "MAKI"
-        }
-      ]
-    },
-      {
-        "row": [
-          {
-            "name": "BAKED"
-          },
-          {
-            "name": "SNACKS"
-          },
-          {
-            "name": "SOUPS"
-          },
-          {
-            "name": "SAUCES"
-          },
-          {
-            "name": "DRINKS"
-          }
-        ]
-      }]
+    cat1 : ["POPULAR","COMBO", "SUSHI", "MAKI"],
+    cat2 : ["BAKED", "SNACKS" ,"SOUPS", "SAUCES", "DRINKS"]
   },
   computed : {
-    filteredResult() {
-      console.log(this.things.products)
-      if (this.state.things) {
-      return this.state.things.products.filter(function (product) {
-            return product.category.includes(this.filteredCategory)
-          });
-      }
-    }
+
   },
   mutations: {
     TOGGLE_SHOPPING_LIST(state) {

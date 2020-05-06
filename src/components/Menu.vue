@@ -1,25 +1,30 @@
 <template>
     <div >
         <b-container fluid="" class="justify-content-center">
-            <b-container>
 
-                <!--            All menu options are displayed here-->
-                <b-row class="justify-content-center">
-                    <h1>MENU</h1>
-                </b-row>
-                <div v-for="(row, index) in things.categories" :key="index">
-                    <b-row class="justify-content-center">
-                        <div v-for="(item, index) in row.row" :key="index" class="col-12 col-sm-6 col-md-3 col-lg-2">
-                            <b-col>
-                                <div v-on:click="filterMenu('does it work?')">
-                                <MenuButton>{{ item.name }}</MenuButton>
-                                </div>
-                            </b-col>
-                        </div>
-                    </b-row>
-                </div>
+            <!--            All menu options are displayed here-->
+            <b-row class="justify-content-center">
+                <h1>MENU</h1>
+            </b-row>
+            <b-row class="justify-content-center">
+                <b-col v-for="(item, index) in $store.state.cat1" :key="index"
+                class="col-12 col-sm-6 col-md-3 col-lg-2 ">
+                    <div v-on:click="console.log('sad')">
+                    <MenuButton>{{ item }}</MenuButton>
+                    </div>
+                </b-col>
+            </b-row>
 
-            </b-container>
+            <b-row class="justify-content-center">
+                <b-col v-for="(item, index) in $store.state.cat2" :key="index"
+                       class="col-12 col-sm-6 col-md-3 col-lg-2">
+                    <div v-on:click="console.log('sad')">
+                        <MenuButton>{{ item }}</MenuButton>
+                    </div>
+
+                </b-col>
+            </b-row>
+
         </b-container>
 
 
@@ -29,7 +34,7 @@
         <b-container fluid="" class="justify-content-center">
             <b-container>
                 <b-row>
-                    <Product v-for="(row, index) in things.filteredResult()" :key="index" v-bind:data="row"></Product>
+<!--                    <Product v-for="(row, index) in things.filteredResult()" :key="index" v-bind:data="row"></Product>-->
                 </b-row>
 
             </b-container>
@@ -46,7 +51,6 @@
 <script>
 
 import MenuButton from "./MenuButton";
-import Product from "./Product";
 import ShoppingList from "./ShoppingList";
 import {mapState} from "vuex";
 // import ShoppingList from "./ShoppingList";
@@ -54,7 +58,7 @@ import {mapState} from "vuex";
 
 export default {
     name: 'Menu',
-    components:  {ShoppingList, Product, MenuButton},
+    components:  {ShoppingList, MenuButton},
     props: {},
     data : function() {
         return {
@@ -72,15 +76,6 @@ export default {
         ["things"]
     )
     ,methods : {
-        filterMenu : function () {
-            console.log(this.data);
-            this.products = this.data.products.filter(function (el) {
-                return el.id === "1"
-            });
-            console.log(this.products)
-        },
-
-
     }
 
 }
