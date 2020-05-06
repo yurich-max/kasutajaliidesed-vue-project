@@ -9,11 +9,29 @@ export default new Vuex.Store({
     showShoppingList : false,
     filteredCategory : "POPULAR",
     // things : Object
-    cat1 : ["POPULAR","COMBO", "SUSHI", "MAKI"],
-    cat2 : ["BAKED", "SNACKS" ,"SOUPS", "SAUCES", "DRINKS"]
+    cat1 : ["POPULAR","COMBOS", "SUSHI", "MAKI"],
+    cat2 : ["BAKED", "SNACKS" ,"SOUPS", "SAUCES", "DRINKS"],
+    products: [
+        {
+        "id": "1",
+        "name": "name1",
+        category: ["POPULAR","SUSHI"]
+      },
+      {
+        "id": "2",
+        "name": "name2",
+        category: ["POPULAR"]
+      },
+      {"id": "3",
+        "name": "name3",
+        category: ["SUSHI"]
+      }
+    ]
   },
-  computed : {
-
+  getters : {
+    availableProducts : state => {
+      return state.products;
+    }
   },
   mutations: {
     TOGGLE_SHOPPING_LIST(state) {
@@ -21,8 +39,13 @@ export default new Vuex.Store({
     },
     SET_DATA(state, data) {
       state.things = data;
+    },
+    SET_CATEGORY(state, data) {
+      state.filteredCategory = data;
+      console.log(this.state.filteredCategory);
     }
-  },
+    }
+  ,
   actions: {
     fetchEvents({ commit }) {
       EventService.getData()
