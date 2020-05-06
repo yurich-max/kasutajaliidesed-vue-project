@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <Header></Header>
     <router-view></router-view>
     <div id="nav">
@@ -20,33 +21,18 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-color: black;
+  min-height: 1100px;
+  overflow-x: hidden;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-.bv-example-row {
- background-color: #101010;
-  height: 40px;
-}
-
-.ex {
+h1,h2,h3,h4,h5,h6 {
   color: white;
 }
 </style>

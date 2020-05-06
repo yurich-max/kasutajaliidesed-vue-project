@@ -1,43 +1,49 @@
 <template>
-    <div >
-        <b-container fluid="" class="justify-content-center">
+    <div>
+        <b-container fluid="" class="justify-content-center p-0">
 
             <!--Start shopping list-->
-            <ShoppingList v-show="$store.state.showShoppingList"></ShoppingList>
+
+            <ShoppingList v-show="$store.state.showShoppingList" v-bind:styleSheet='{float: right,width: 360 + "px"}'></ShoppingList>
+
+            </b-container>
+
             <!--End shopping list-->
 
 
             <!--Start menu category-->
-            <b-row class="justify-content-center">
-                <h1>MENU</h1>
-            </b-row>
-            <b-row class="justify-content-center">
-                <b-col v-for="(item, index) in $store.state.cat1" :key="index"
-                class="col-12 col-sm-6 col-md-3 col-lg-2 ">
-                    <div v-on:click="changeCategory(item)">
-                        <MenuButton>{{ item }}</MenuButton>
-                    </div>
-                </b-col>
-            </b-row>
+            <div class="menu">
+                <b-row class="justify-content-center">
+                    <h1>MENU</h1>
+                </b-row>
+                <b-row class="justify-content-center">
+                    <b-col v-for="(item, index) in $store.state.cat1" :key="index"
+                    class="col-12 col-sm-6 col-md-3 col-lg-2 ">
+                        <div v-on:click="changeCategory(item)">
+                            <MenuButton>{{ item }}</MenuButton>
+                        </div>
+                    </b-col>
+                </b-row>
 
-            <b-row class="justify-content-center">
-                <b-col v-for="(item, index) in $store.state.cat2" :key="index"
-                   class="col-12 col-sm-6 col-md-3 col-lg-2">
-                    <div v-on:click="changeCategory(item)">
-                        <MenuButton>{{ item }}</MenuButton>
-                    </div>
-                </b-col>
-            </b-row>
+                <b-row class="justify-content-center">
+                    <b-col v-for="(item, index) in $store.state.cat2" :key="index"
+                       class="col-12 col-sm-6 col-md-3 col-lg-2">
+                        <div v-on:click="changeCategory(item)">
+                            <MenuButton>{{ item }}</MenuButton>
+                        </div>
+                    </b-col>
+                </b-row>
+            </div>
             <!--End menu category-->
 
-            <b-container>
+            <b-container class="productShowcase mt-3 pt-n3">
                 <b-row>
                     <!--Start product-->
                     <Product v-for="(row, index) in availableProducts" :key="index" v-bind:data="row"></Product>
                     <!--End product-->
                 </b-row>
             </b-container>
-        </b-container>
+
     </div>
 
 <!--            <b-col><h1 @click="emitGlobalClickEvent()">{{info}}</h1></b-col>-->
@@ -92,5 +98,13 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    .menu {
+        background-color: black;
+        color: white;
+    }
+    .productShowcase {
+        background-image: linear-gradient(225deg, #1f0e23, #211818, #1c1b2a);
+        border-radius: 6px;
+    }
 
 </style>

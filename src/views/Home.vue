@@ -1,7 +1,6 @@
 <template>
 
   <div class="home">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <Carousel></Carousel>
     <Menu></Menu>
   </div>
@@ -24,11 +23,14 @@ export default {
   components: {
     Carousel,
     Menu
-  }
+  },
+
 
 }
 </script>
 
 <style scoped>
-
+  home {
+    min-height: 1100px;
+  }
 </style>

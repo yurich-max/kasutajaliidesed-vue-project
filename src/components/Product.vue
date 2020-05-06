@@ -5,31 +5,27 @@
                 img-top
                 no-body>
 
-                <b-card-title class=" m-0">{{data.name}}, {{data.price}} €</b-card-title>
+                <b-card-title class=" mt-2">{{data.name}}, {{data.price}} €</b-card-title>
                 <b-card-text class="p-0">
-                    <b-row>
-                    <b-col v-for="(el, index) in data.ingredients" :key="index">
-                        {{el}}
-                    </b-col>
-                    </b-row>
-                    .
+                        {{ data.ingredients.join(', ') }}
+
                 </b-card-text>
 
                 <b-form-group class="m-0">
                     <div class= "text-center">
 
                         <button type="button" class="btn- button5" @click="decrease">
-                            <font-awesome-icon icon="user-secret" />
+                            <i class="fa fa-minus fa-lg" aria-hidden="true"></i>
                         </button>
                         <label>
                             <input type="text" class="input-text rounded-circle text-center" v-bind:value="currentAmount" size="1" pattern="[0-9]*" readonly="">
                         </label>
                         <button type="button" class="btn- button5" @click="increase">
-                            <font-awesome-icon icon="user-secret" />
+                            <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
                         </button>
 
                         <div class="add-item">
-                            <b-button type="button" class="btn-block btn-lg mt-2 mb-0 p" @click="add(currentAmount)">Add</b-button>
+                            <b-button type="button" class="btn-block btn-lg mt-2 mb-0 p" @click="add(currentAmount)">ADD</b-button>
                         </div>
                     </div>
                 </b-form-group>
@@ -65,6 +61,7 @@
                     name : this.data.name, price : this.data.price, amount : amount
                 })
                 this.currentAmount = 1
+
             }
         }
     }
@@ -73,5 +70,43 @@
 <style scoped>
     .card-body {
         padding: 1em;
+    }
+
+    .input-text {
+        width: 35px;
+        height: 35px;
+        background-color: #282828;
+        color: white;
+        border-color: #ca84ff;
+        font-weight: bold;
+    }
+    .btn- {
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        background-color: black;
+    }
+    .fa-plus {
+        color: white;
+        background-color: black;
+        border-color: rgba(191, 17, 17, 0.92);
+    }
+    .fa-minus {
+        color: white;
+        background-color: black;
+        border-color: rgba(191, 17, 17, 0.92);
+    }
+    .btn-block {
+        background-image: linear-gradient(0deg, #35000e, #000000, #000000, #000000);
+        background-color: #e50000;
+        text-shadow: 0 2px rgba(255, 111, 245, 0.85);
+        color: white;
+        padding: 12px 1px;
+        font-size: 18px;
+        border-radius: 10px;
+        border: none #0b0b0b;
+    }
+    h4 {
+        color: black;
     }
 </style>
