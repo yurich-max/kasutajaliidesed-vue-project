@@ -12,26 +12,23 @@ export default new Vuex.Store({
     cat1 : ["POPULAR","COMBOS", "SUSHI", "MAKI"],
     cat2 : ["BAKED", "SNACKS" ,"SOUPS", "SAUCES", "DRINKS"],
     products: [
-        {
-        "id": "1",
-        "name": "name1",
-        category: ["POPULAR","SUSHI"]
-      },
-      {
-        "id": "2",
-        "name": "name2",
-        category: ["POPULAR"]
-      },
-      {"id": "3",
-        "name": "name3",
-        category: ["SUSHI"]
-      }
+        {id: 1, name: "name1", category: ["POPULAR","SUSHI"]},
+        {id: 2, name: "name2", category: ["POPULAR"]},
+        {id: 3, name: "name3", category: ["POPULAR"]}
     ]
   },
   getters : {
-    availableProducts : state => {
-      return state.products;
+    currentCategory : state => {
+      return state.filteredCategory;
+    },
+
+    availableProducts : (state, getters) => {
+      return state.products.filter(product =>
+          product.category.indexOf(getters.currentCategory) > -1);
     }
+  },
+  computed : {
+
   },
   mutations: {
     TOGGLE_SHOPPING_LIST(state) {

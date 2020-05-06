@@ -2,8 +2,12 @@
     <div >
         <b-container fluid="" class="justify-content-center">
 
-            <!--Menu item start-->
+            <!--Start shopping list-->
+            <ShoppingList v-if="$store.state.showShoppingList"></ShoppingList>
+            <!--End shopping list-->
 
+
+            <!--Start menu category-->
             <b-row class="justify-content-center">
                 <h1>MENU</h1>
             </b-row>
@@ -24,33 +28,19 @@
                     </div>
                 </b-col>
             </b-row>
+            <!--End menu category-->
 
-            <!--Menu item end-->
-
-        </b-container>
-
-
-    <!--            <ShoppingList></ShoppingList>-->
-    <ShoppingList v-if="$store.state.showShoppingList"></ShoppingList>
-
-
-    <!--            All products for chosen category are displayed here-->
-        <b-container fluid="" class="justify-content-center">
             <b-container>
                 <b-row>
+                    <!--Start product-->
                     <Product v-for="(row, index) in availableProducts" :key="index" v-bind:data="row"></Product>
-
-
+                    <!--End product-->
                 </b-row>
-
             </b-container>
         </b-container>
     </div>
 
-
-
 <!--            <b-col><h1 @click="emitGlobalClickEvent()">{{info}}</h1></b-col>-->
-
 
 </template>
 
@@ -81,7 +71,7 @@ export default {
     },
     computed: {
         availableProducts () {
-            return this.$store.getters.availableProducts
+            return this.$store.getters.availableProducts;
         }
     },
     methods : {
