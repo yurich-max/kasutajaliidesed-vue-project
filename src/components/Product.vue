@@ -64,6 +64,7 @@
                 this.$store.commit('PUT_ITEM', {
                     name : this.data.name, price : this.data.price, amount : amount
                 })
+                this.currentAmount = 1
             }
         }
     }

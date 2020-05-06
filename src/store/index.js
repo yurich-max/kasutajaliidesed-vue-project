@@ -75,6 +75,12 @@ export default new Vuex.Store({
 
         }
         console.log(state.shoppingList)
+    },
+    DELETE_ITEM(state, item) {
+        const index = state.shoppingList.indexOf(item);
+        if (index > -1) {
+            state.shoppingList.splice(index, 1);
+        }
     }
     },
     actions: {

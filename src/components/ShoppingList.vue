@@ -1,33 +1,31 @@
 <template>
     <div >
-        <b-container class="shopping-list position-fixed">
-            <b-container fluid="">
-                <b-row>
-                    <div class="col-12 no-gutters">
-                        <div class="col-12" style="background-color:rgb(0,0,0); border-radius: 20px;"><p>CART</p></div>
-                    </div>
-                </b-row>
-
-                    <div >
-                        <CartItem v-for="(row, index) in chosenProducts" :key="index" v-bind:data="row"></CartItem>
-                    </div>
-
-
-
-
+        <b-container fluid="" class="pane position-fixed rounded p-0">
+            <b-container class="p-0 rounded">
+                <b-container fluid="" class="rounded">
+                    <b-row>
+                            <b-col class="col-12 cart-header pt-2" ><h3>CART</h3></b-col>
+                    </b-row>
+                </b-container>
+            <b-container class="p-0 rounded shopping-list">
+            <b-row>
+                <CartItem v-for="(row, index) in chosenProducts" :key="index" v-bind:data="row"></CartItem>
+            </b-row>
             </b-container>
 
-
+                <hr>
+            <b-container class="p-0 rounded total">
+            <b-row>
+                <b-col class="col-12 mt-2"><h4>Total: {{itemsSum}} €</h4></b-col>
+            </b-row>
             <hr>
-            <div class="row" >
-                <div class="col-12 mt-2"><h4>Total: {{itemsSum}} €</h4></div>
-            </div>
-            <hr>
-            <div class="row " >
-                <div class="col-12 mb-2 text-center">
-                    <button type="button" class="btn-lg btn-primary btn-block disabled" disabled>Proceed</button>
-                </div>
-            </div>
+            <b-row class="p-0">
+                <b-col class="col-12 mb-2 text-center">
+                    <button type="button" class="btn-lg btn-primary btn-block pt-n5">Proceed</button>
+                </b-col>
+            </b-row>
+                </b-container>
+            </b-container>
         </b-container>
     </div>
 </template>
@@ -56,19 +54,62 @@
 </script>
 
 <style scoped>
+    .cart-header {
+        background-color: rgb(172, 52, 52);
+        border-radius: 2px;
+    }
+    h3 {
+        color: white;
+    }
 
-
-    .shopping-list, test {
+    .pane {
         z-index: 9999;
         top: 60px;
         width: 360px;
         right: 0;
         float: right;
-        max-height: 80vh;
-        background-color: #8d7c81;
+
+        background-color: rgba(0, 0, 0, 0.85);
+        overflow-x: hidden;
+
+
+    }
+    .total {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .shopping-list, test {
+
+
+
         overflow-y: scroll;
+        max-height: 400px;
+        overflow-x: hidden;
+
     }
     .items {
         overflow-y: scroll;
+
+    }
+    /* width */
+    ::-webkit-scrollbar {
+        width: 20px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #181818;
+        border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #363636;
     }
 </style>
