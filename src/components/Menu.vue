@@ -4,7 +4,7 @@
 
             <!--Start shopping list-->
 
-            <ShoppingList v-show="$store.state.showShoppingList" v-bind:styleSheet='{float: right,width: 360 + "px"}'></ShoppingList>
+            <ShoppingList v-show="$store.state.showShoppingList"></ShoppingList>
 
             </b-container>
 

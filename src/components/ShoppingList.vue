@@ -49,9 +49,6 @@
     export default {
         name: "ShoppingList",
         components: {CartItem},
-        props: {
-            styleSheet : Object
-        },
         computed : {
             chosenProducts() {
                 return this.$store.getters.shoppingList;
