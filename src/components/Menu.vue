@@ -7,9 +7,9 @@
                 <b-row class="justify-content-center">
                     <h1>MENU</h1>
                 </b-row>
-                <div v-for="row in data.categories" :key="row">
+                <div v-for="(row, index) in data.categories" :key="index">
                     <b-row class="justify-content-center">
-                        <div v-for="item in row.row" :key="item.name" class="col-12 col-sm-6 col-md-3 col-lg-2">
+                        <div v-for="(item, index) in row.row" :key="index" class="col-12 col-sm-6 col-md-3 col-lg-2">
                             <b-col>
                                 <div v-on:click="filterMenu('does it work?')">
                                 <MenuButton>{{ item.name }}</MenuButton>
@@ -28,7 +28,7 @@
         <b-container fluid="" class="justify-content-center">
             <b-container>
                 <b-row>
-                    <Product v-for="row in data.products" :key="row" v-bind:data="row"></Product>
+                    <Product v-for="(row, index) in data.products" :key="index" v-bind:data="row"></Product>
                 </b-row>
 
             </b-container>
