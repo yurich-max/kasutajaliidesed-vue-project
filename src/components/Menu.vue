@@ -18,12 +18,13 @@
                         </div>
                     </b-row>
                 </div>
+
             </b-container>
         </b-container>
 
 
     <!--            <ShoppingList></ShoppingList>-->
-
+    <ShoppingList v-if="$store.state.showShoppingList"></ShoppingList>
     <!--            All products for chosen category are displayed here-->
         <b-container fluid="" class="justify-content-center">
             <b-container>
@@ -47,17 +48,19 @@
 import EventService from '../services/EventService.js'
 import MenuButton from "./MenuButton";
 import Product from "./Product";
+import ShoppingList from "./ShoppingList";
 // import ShoppingList from "./ShoppingList";
 
 
 export default {
     name: 'Menu',
-    components:  {Product, MenuButton},
+    components:  {ShoppingList, Product, MenuButton},
     props: {},
     data : function() {
         return {
             data : Object,
             products : [],
+            showList : false,
             'info' : '',
             'menuName' : 'menu',
         };

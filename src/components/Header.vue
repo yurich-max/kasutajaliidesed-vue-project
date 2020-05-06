@@ -4,10 +4,11 @@
             <b-col class="p-0 pb-1" >
                 <router-link to="/">
                     <img alt="Sushi logo" src="../assets/logo.png" class="mt-1">
-                    <a href="#" class="cart btn btn-info btn-lg border-0" id="cart">
-                        <span class="fa fa-shopping-cart fa-2x mx-0 my-0 " ></span>
-                    </a>
                 </router-link>
+
+                <div class="cart btn btn-info btn-lg border-0" id="cart" @click="toggleShoppingList">
+                    <span class="fa fa-shopping-cart fa-2x mx-0 my-0 " ></span>
+                </div>
             </b-col>
         </b-row>
     </b-container>
@@ -16,7 +17,12 @@
 <script>
     export default {
         name: 'Header',
-        props: {}
+        props: {},
+        methods : {
+            toggleShoppingList() {
+                this.$store.commit('TOGGLE_SHOPPING_LIST')
+            }
+        }
     }
 </script>
 
