@@ -29,7 +29,7 @@
                         </button>
 
                         <div class="add-item">
-                            <b-button type="button" class="btn-block btn-lg mt-2 mb-0 p" @click="add">Add</b-button>
+                            <b-button type="button" class="btn-block btn-lg mt-2 mb-0 p" @click="add(currentAmount)">Add</b-button>
                         </div>
                     </div>
                 </b-form-group>
@@ -60,8 +60,10 @@
                     this.currentAmount--;
                 }
             },
-            add() {
-
+            add(amount) {
+                this.$store.commit('PUT_ITEM', {
+                    name : this.data.name, price : this.data.price, amount : amount
+                })
             }
         }
     }

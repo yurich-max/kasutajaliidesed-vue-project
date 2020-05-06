@@ -53,7 +53,6 @@ export default new Vuex.Store({
     },
   },
   computed : {
-
   },
   mutations: {
     TOGGLE_SHOPPING_LIST(state) {
@@ -64,14 +63,21 @@ export default new Vuex.Store({
     },
     SET_CATEGORY(state, data) {
       state.filteredCategory = data;
-      console.log(this.state.filteredCategory);
     },
     PUT_ITEM(state, data) {
-      state.shoppingList.push(data);
-    },
+        let res =  state.shoppingList.filter(product => {
+            return product.name === data.name;
+        })
+        if (res.length > 0) {
+            res[0].amount += data.amount;
+        } else {
+            state.shoppingList.push(data);
+
+        }
+        console.log(state.shoppingList)
     }
-  ,
-  actions: {
+    },
+    actions: {
     fetchEvents({ commit }) {
       EventService.getData()
           .then(response => {
