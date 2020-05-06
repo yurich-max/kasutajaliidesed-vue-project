@@ -7,7 +7,7 @@
                 <b-row class="justify-content-center">
                     <h1>MENU</h1>
                 </b-row>
-                <div v-for="(row, index) in data.categories" :key="index">
+                <div v-for="(row, index) in things.categories" :key="index">
                     <b-row class="justify-content-center">
                         <div v-for="(item, index) in row.row" :key="index" class="col-12 col-sm-6 col-md-3 col-lg-2">
                             <b-col>
@@ -29,7 +29,7 @@
         <b-container fluid="" class="justify-content-center">
             <b-container>
                 <b-row>
-                    <Product v-for="(row, index) in data.products" :key="index" v-bind:data="row"></Product>
+                    <Product v-for="(row, index) in things.filteredResult()" :key="index" v-bind:data="row"></Product>
                 </b-row>
 
             </b-container>
@@ -45,10 +45,10 @@
 
 <script>
 
-import EventService from '../services/EventService.js'
 import MenuButton from "./MenuButton";
 import Product from "./Product";
 import ShoppingList from "./ShoppingList";
+import {mapState} from "vuex";
 // import ShoppingList from "./ShoppingList";
 
 
@@ -66,13 +66,12 @@ export default {
         };
     },
     created() {
-        EventService.getData()
-            .then(response => this.data = response.data)
-            .catch(error => {
-                console.log("Error:", error.response)
-            })
+        this.$store.dispatch('fetchEvents')
     },
-    methods : {
+    computed: mapState(
+        ["things"]
+    )
+    ,methods : {
         filterMenu : function () {
             console.log(this.data);
             this.products = this.data.products.filter(function (el) {
