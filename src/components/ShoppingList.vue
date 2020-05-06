@@ -6,14 +6,14 @@
                     <div class="col-12" style="background-color:rgb(0,0,0); border-radius: 20px;"><p>CART</p></div>
                 </div>
             </b-row>
+
             <CartItem></CartItem>
-            <CartItem></CartItem>
-            <CartItem></CartItem>
-            <CartItem></CartItem>
+            <div >
+                <CartItem v-for="(row, index) in chosenProducts" :key="index" v-bind:data="row"></CartItem>
+            </div>
+
 
             <b-container fluid="">
-
-
                 <hr>
                 <div class="row" >
                     <div class="col-12 mt-2"><h4>Total: 0 €</h4></div>
@@ -34,7 +34,12 @@
     import CartItem from "./CartItem";
     export default {
         name: "ShoppingList",
-        components: {CartItem}
+        components: {CartItem},
+        computed : {
+            chosenProducts() {
+                return this.$store.getters.shoppingList;
+            }
+        }
     }
 </script>
 

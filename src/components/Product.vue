@@ -5,26 +5,31 @@
                 img-top
                 no-body>
 
-                <b-card-title class=" m-0">{{data.name}}SUSHI 7.5€</b-card-title>
+                <b-card-title class=" m-0">{{data.name}}, {{data.price}} €</b-card-title>
                 <b-card-text class="p-0">
-                Salmon, rice, avocado, cucumber, cream.
+                    <b-row>
+                    <b-col v-for="(el, index) in data.ingredients" :key="index">
+                        {{el}}
+                    </b-col>
+                    </b-row>
+                    .
                 </b-card-text>
 
                 <b-form-group class="m-0">
                     <div class= "text-center">
 
-                        <button type="button" class="btn- button5">
+                        <button type="button" class="btn- button5" @click="decrease">
                             <font-awesome-icon icon="user-secret" />
                         </button>
                         <label>
-                            <input type="text" class="input-text rounded-circle text-center" value="1" size="1" pattern="[0-9]*" readonly="">
+                            <input type="text" class="input-text rounded-circle text-center" v-bind:value="currentAmount" size="1" pattern="[0-9]*" readonly="">
                         </label>
-                        <button type="button" class="btn- button5">
+                        <button type="button" class="btn- button5" @click="increase">
                             <font-awesome-icon icon="user-secret" />
                         </button>
 
                         <div class="add-item">
-                            <b-button type="button" onclick="window.location.href='cart-filled.html'" class="btn-block btn-lg mt-2 mb-0 p">Add</b-button>
+                            <b-button type="button" class="btn-block btn-lg mt-2 mb-0 p" @click="add">Add</b-button>
                         </div>
                     </div>
                 </b-form-group>
@@ -40,6 +45,24 @@
         name: "Product",
         props: {
             data : Object
+        },
+        data : function () {
+            return {
+                currentAmount : 1
+            }
+        },
+        methods : {
+            increase() {
+                this.currentAmount++;
+            },
+            decrease() {
+                if (this.currentAmount > 1) {
+                    this.currentAmount--;
+                }
+            },
+            add() {
+
+            }
         }
     }
 </script>

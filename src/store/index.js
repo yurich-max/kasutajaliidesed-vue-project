@@ -12,10 +12,32 @@ export default new Vuex.Store({
     cat1 : ["POPULAR","COMBOS", "SUSHI", "MAKI"],
     cat2 : ["BAKED", "SNACKS" ,"SOUPS", "SAUCES", "DRINKS"],
     products: [
-        {id: 1, name: "name1", category: ["POPULAR","SUSHI"]},
-        {id: 2, name: "name2", category: ["POPULAR"]},
-        {id: 3, name: "name3", category: ["POPULAR"]}
-    ]
+        {id: 1, name: "Avocado", category: ["POPULAR","SUSHI"],
+          ingredients : ["Avocado", "Some fist", "Rice"], price : 10},
+        {id: 2, name: "Avocado?", category: ["POPULAR"],
+          ingredients : ["Avocado", "Avocado"], price : 11},
+        {id: 3, name: "Hmm", category: ["POPULAR"],
+          ingredients : ["Hmm", "Rice"], price : 8},
+        {id: 4, name: "Nameless", category: ["POPULAR","SUSHI"],
+          ingredients : ["Avocado", "Rice"], price : 8},
+        {id: 5, name: "name2", category: ["POPULAR"],
+          ingredients : ["Avocado", "Red blood"], price : 8},
+        {id: 6, name: "name3", category: ["POPULAR"],
+          ingredients : ["Avocado", "Rice"], price : 5},
+        {id: 7, name: "name4", category: ["POPULAR","SUSHI"],
+          ingredients : ["Avocado", "Rice"], price : 15},
+        {id: 8, name: "name5", category: ["POPULAR"],
+          ingredients : ["Avocado","Salmon", "Rice"], price : 4},
+        {id: 9, name: "name6", category: ["POPULAR"],
+          ingredients : ["Avocado", "Rice"], price : 5},
+        {id: 10, name: "name7", category: ["POPULAR","SUSHI"],
+          ingredients : ["Avocado", "Rice"], price : 11},
+        {id: 11, name: "name8", category: ["POPULAR"],
+          ingredients : ["Avocado", "Rice"], price : 11},
+        {id: 12, name: "name9", category: ["POPULAR"],
+          ingredients : ["Avocado", "Rice"], price : 8}
+    ],
+    shoppingList : [{name : "Sushi", amount : 1, price : 10}, {name : "Sushi", amount : 1, price : 10} ]
   },
   getters : {
     currentCategory : state => {
@@ -25,7 +47,10 @@ export default new Vuex.Store({
     availableProducts : (state, getters) => {
       return state.products.filter(product =>
           product.category.indexOf(getters.currentCategory) > -1);
-    }
+    },
+    shoppingList : state => {
+      return state.shoppingList;
+    },
   },
   computed : {
 
@@ -40,7 +65,10 @@ export default new Vuex.Store({
     SET_CATEGORY(state, data) {
       state.filteredCategory = data;
       console.log(this.state.filteredCategory);
-    }
+    },
+    PUT_ITEM(state, data) {
+      state.shoppingList.push(data);
+    },
     }
   ,
   actions: {

@@ -3,7 +3,7 @@
         <b-container fluid="" class="justify-content-center">
 
             <!--Start shopping list-->
-            <ShoppingList v-if="$store.state.showShoppingList"></ShoppingList>
+            <ShoppingList v-show="$store.state.showShoppingList"></ShoppingList>
             <!--End shopping list-->
 
 
