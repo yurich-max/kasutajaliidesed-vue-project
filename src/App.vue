@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
     <Header></Header>
     <router-view></router-view>
     <div id="nav">
@@ -15,6 +16,10 @@ import Header from "./components/Header";
 
 export default {
   components: {Header}
+  ,
+  validations: {
+    // my validations definition
+  }
 }
 
 

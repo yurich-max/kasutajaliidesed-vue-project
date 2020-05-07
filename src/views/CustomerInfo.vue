@@ -7,8 +7,10 @@
         <div>
             <CartItem v-for="(row, index) in chosenProducts" :key="index" v-bind:data="row"></CartItem>
         </div>
+
     </b-container>
     </div>
+
 </template>
 
 <script>
@@ -27,7 +29,7 @@
     export default {
         name: 'Home',
         components: {
-            CartItem,
+            CartItem
         },
         computed : {
             chosenProducts() {
