@@ -27,7 +27,7 @@ export default new Vuex.Store({
           ingredients : ["AVOCADO", "RICE"], price : 5},
         {id: 7, name: "SUSHI", category: ["POPULAR","SUSHI"],
           ingredients : ["AVOCADO", "RICE"], price : 15},
-        {id: 8, name: "SNACK ME UP", category: ["POPULAR", "SNACK"],
+        {id: 8, name: "BRAAAAINS", category: ["POPULAR", "SNACK"],
           ingredients : ["SNACK","Salmon", "Rice"], price : 4},
         {id: 9, name: "NAME$", category: ["POPULAR"],
           ingredients : ["AVOCADO", "RICE"], price : 5},

@@ -80,7 +80,6 @@
         padding: 12px 1px;
         font-size: 18px;
         border-radius: 10px;
-
     }
 
     a {  text-decoration: none;}

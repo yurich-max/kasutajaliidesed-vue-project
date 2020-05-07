@@ -52,12 +52,20 @@ li {
 
 .btn-block {
   background-image: linear-gradient(0deg, #35000e, #e50000, #e50000, #e50000);
-  background-color: #e50000;
   text-shadow: 0 2px rgba(255, 111, 245, 0.85);
-  color: white;
+  color: #090404;
   padding: 12px 1px;
   font-size: 18px;
   border-radius: 10px;
   border: none #0b0b0b;
+}
+.btn-block:hover {
+  background-image: linear-gradient(0deg, #440029, #0a0303, #070101, #000000);
+}
+
+
+.btn-block:focus, .btn-block:active {
+  outline: none !important;
+  box-shadow: none !important;
 }
 </style>

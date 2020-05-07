@@ -108,5 +108,8 @@ export default {
         background-image: linear-gradient(225deg, #1f0e23, #211818, #1c1b2a);
         border-radius: 6px;
     }
+    h1 {
+        text-shadow: 0 2px rgba(255, 111, 245, 0.85);
+    }
 
 </style>

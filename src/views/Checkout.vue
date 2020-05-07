@@ -15,25 +15,23 @@
                     </b-row>
                     <b-row>
                         <b-col class="col-6 image">
-                            <router-link tag="li" to="/">
-                                <b-img src="https://i.postimg.cc/1XzHYW5V/swed.png" alt="SWED"/>
-                            </router-link>
+                            <b-img src="https://i.postimg.cc/1XzHYW5V/swed.png" @click="direct" alt="SWED"/>
                         </b-col>
                         <b-col class="col-6 image">
-                            <router-link tag="li" to="/">
-                                <b-img src="https://i.postimg.cc/KvwNJDX4/paypal.jpg" alt="PAYPAL"/>
+                            <router-link tag="li" to="/review">
+                                <b-img src="https://i.postimg.cc/KvwNJDX4/paypal.jpg" @click="direct" alt="PAYPAL"/>
                             </router-link>
                         </b-col>
                     </b-row>
                     <b-row>
                         <b-col class="col-6 image">
-                            <router-link tag="li" to="/">
-                                <b-img src="https://i.postimg.cc/tgtNR0sV/seb.png" alt="SEB"/>
+                            <router-link tag="li" to="/review">
+                                <b-img src="https://i.postimg.cc/tgtNR0sV/seb.png" @click="direct" alt="SEB"/>
                             </router-link>
                         </b-col>
                         <b-col class="col-6 image">
-                            <router-link tag="li" to="/">
-                                <b-img src="https://i.postimg.cc/LXxkfzB9/etherium.jpg" alt="ETH"/>
+                            <router-link tag="li" to="/review">
+                                <b-img src="https://i.postimg.cc/LXxkfzB9/etherium.jpg" @click="direct" alt="ETH"/>
                             </router-link>
                         </b-col>
                     </b-row>
@@ -105,8 +103,13 @@
             submitForm() {
                 this.$v.$touch()
                 if (!this.$v.choice.$invalid) {
+                    alert("Your order is being processed. Thank you for your purchase. You will receive a receipt on your mail.")
                     this.$router.push({ path: '/' });
                 }
+            },
+            direct() {
+                alert("Your order is being processed. Thank you for your purchase. You will receive a receipt on your mail.")
+                this.$router.push({ path: '/' });
             }
         }
     }
