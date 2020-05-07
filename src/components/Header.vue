@@ -3,7 +3,7 @@
         <b-row>
             <b-col class="p-0 pl-5" >
                 <router-link to="/">
-                    <img alt="Sushi logo" src="../assets/logo.png" class="mt-1 pb-5">
+                    <img alt="Sushi logo" src="../assets/logo.png" class="mt-1">
                 </router-link>
 
                 <div class="btn-lg border-0"  @click="toggleShoppingList">

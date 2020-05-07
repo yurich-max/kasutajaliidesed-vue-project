@@ -1,11 +1,11 @@
 <template>
     <div >
-        <b-container fluid="" class="pane position-fixed p-0">
+        <b-container fluid="" class="pane p-0 align-content-center">
 
             <b-container class="p-0 rounded">
                 <b-container fluid="" class="rounded">
                     <b-row>
-                            <b-col class="col-12 cart-header pt-2" ><h6>CART</h6></b-col>
+                        <b-col class="col-12 cart-header pt-2" ><h6>CART</h6></b-col>
                     </b-row>
                 </b-container>
                 <b-container class="p-0 rounded shopping-list">
@@ -23,18 +23,7 @@
                     <b-container class="p-0 rounded total mt-1">
                         <b-row>
                             <b-col class="col-12 mt-3 pb-2">
-
-                                    <h3>Total: {{itemsSum}} €</h3>
-
-                            </b-col>
-                        </b-row>
-                        <b-row class="p-0">
-                            <b-col class="col-12 mb-2 text-center">
-
-                                <button type="button" class="btn-lg btn-primary btn-block bp-5 mb-n2 p2-2">
-                                    <router-link tag="li" to="/customerInfo">Proceed</router-link>
-                                </button>
-
+                                <h3>Total: {{itemsSum}} €</h3>
                             </b-col>
                         </b-row>
                     </b-container>
@@ -45,29 +34,31 @@
 </template>
 
 <script>
-    import CartItem from "./CartItem";
-    export default {
-        name: "ShoppingList",
-        components: {CartItem},
-        computed : {
-            chosenProducts() {
-                return this.$store.getters.shoppingList;
-            },
-            isCheckout() {
-                return this.$store.getters.isCheckout;
-            },
+import CartItem from "./CartItem";
 
-            itemsSum() {
-                var list = this.$store.state.shoppingList;
-                var sum = 0
-                list.forEach(function (product) {
-                    sum += product.amount * product.price
-                })
-                return sum;
+export default {
+    name: "ShoppingOverview",
+    components: {CartItem},
+    computed : {
+        chosenProducts() {
+            return this.$store.getters.shoppingList;
+        },
+        isCheckout() {
+            return this.$store.getters.isCheckout;
+        },
 
-            }
+        itemsSum() {
+            var list = this.$store.state.shoppingList;
+            var sum = 0
+            list.forEach(function (product) {
+                sum += product.amount * product.price
+            })
+            return sum;
+
         }
-    }
+    },
+
+}
 </script>
 
 <style scoped>
@@ -76,25 +67,12 @@
         border-radius: 2px;
     }
 
-    .btn-block {
-        padding: 12px 1px;
-        font-size: 18px;
-        border-radius: 10px;
-
-    }
-
     a {  text-decoration: none;}
 
     .pane {
-        z-index: 9999;
-        top: 60px;
         width: 360px;
-        float: right;
-        right: 0;
-
         border-radius: 20px;
-
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(38, 31, 31, 0.85);
         overflow-x: hidden;
 
 
@@ -133,5 +111,7 @@
     ::-webkit-scrollbar-thumb:hover {
         background: #bf0000;
     }
-
+    li {
+        list-style-type: none;
+    }
 </style>

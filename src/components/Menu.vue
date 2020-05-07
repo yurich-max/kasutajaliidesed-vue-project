@@ -103,6 +103,8 @@ export default {
         color: white;
     }
     .productShowcase {
+        min-width: 80vw;
+        min-height: 40vw;
         background-image: linear-gradient(225deg, #1f0e23, #211818, #1c1b2a);
         border-radius: 6px;
     }

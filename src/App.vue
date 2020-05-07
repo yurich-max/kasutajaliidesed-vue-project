@@ -4,10 +4,6 @@
 
     <Header></Header>
     <router-view></router-view>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
   </div>
 </template>
 
@@ -19,6 +15,9 @@ export default {
   ,
   validations: {
     // my validations definition
+  },
+  methods: {
+
   }
 }
 
@@ -34,10 +33,31 @@ export default {
   text-align: center;
   color: #2c3e50;
   background-color: black;
-  min-height: 1100px;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 h1,h2,h3,h4,h5,h6 {
   color: white;
+}
+li {
+  list-style: none;
+}
+
+.success {
+  color: #087f4c;
+}
+.error {
+  color: red;
+}
+
+.btn-block {
+  background-image: linear-gradient(0deg, #35000e, #e50000, #e50000, #e50000);
+  background-color: #e50000;
+  text-shadow: 0 2px rgba(255, 111, 245, 0.85);
+  color: white;
+  padding: 12px 1px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none #0b0b0b;
 }
 </style>

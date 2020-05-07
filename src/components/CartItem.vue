@@ -75,6 +75,10 @@
         border-color: rgba(191, 17, 17, 0.92);
         font-weight: bold;
     }
+    .input-text:hover {
+        cursor: default;
+    }
+
     .fa-plus {
         color: white;
         background-color: black;
@@ -87,6 +91,9 @@
     }
     .fa-times {
         color: #e50000;
+    }
+    .fa-times:hover {
+        cursor: pointer;
     }
 
     .sum {

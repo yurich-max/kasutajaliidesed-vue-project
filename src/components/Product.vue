@@ -101,12 +101,12 @@
         background-color: #e50000;
         text-shadow: 0 2px rgba(255, 111, 245, 0.85);
         color: white;
-        padding: 12px 1px;
-        font-size: 18px;
-        border-radius: 10px;
-        border: none #0b0b0b;
+
     }
     h4 {
         color: black;
+    }
+    input-text:hover {
+        cursor: default;
     }
 </style>
